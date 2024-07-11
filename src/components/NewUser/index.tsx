@@ -17,7 +17,6 @@ const NewUser: React.FC<INewUserProps> = ({ setNovoUsuario }) => {
   const handleNewUser = async() => {
     await createUserWithEmailAndPassword(auth, email, senha)
     .then((user) => {
-      console.log(user.user)
       updateProfile(user.user, {
         displayName: nome
       })

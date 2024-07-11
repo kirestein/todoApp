@@ -16,7 +16,6 @@ function App() {
     async function checkLogin() {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          console.log('Usuário logado')
           setUser(true)
           setUserDetail({
             uid: user.uid,
@@ -24,7 +23,6 @@ function App() {
           })
           
         } else {
-          console.log('Usuário não logado')
           setUser(false)
           setUserDetail({})
         }

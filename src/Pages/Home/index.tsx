@@ -22,7 +22,6 @@ const Home: React.FC = () => {
     async function checkLogin() {
       onAuthStateChanged(auth, (user) => {
         if (user) {
-          console.log("Usuário logado");
           setUser(true);
           setUserDetail({
             uid: user.uid,
@@ -31,7 +30,6 @@ const Home: React.FC = () => {
           });
           setUserName(user.displayName);
         } else {
-          console.log("Usuário não logado");
           setUser(false);
           setUserDetail({});
           navigate("/");
