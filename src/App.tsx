@@ -1,25 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+/* eslint-disable @typescript-eslint/no-unused-vars */
+import React, { useEffect, useState } from 'react';
+import Routes from './Routes';
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase/firebaseConnetion';
+import { GlobalStyle } from './styles/Globals';
+import { ThemeProvider } from 'styled-components';
+import main from './styles/themes/index'
 
 function App() {
+
+  const [user, setUser] = useState<boolean>(false);
+  const [userDetail, setUserDetail] = useState<any>({})
+
+  useEffect(() => {
+    async function checkLogin() {
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          console.log('Usuário logado')
+          setUser(true)
+          setUserDetail({
+            uid: user.uid,
+            email: user.email
+          })
+          
+        } else {
+          console.log('Usuário não logado')
+          setUser(false)
+          setUserDetail({})
+        }
+      })
+    }
+    checkLogin()
+  }, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={main}>
+      <GlobalStyle />
+      <Routes />
+    </ThemeProvider>
   );
 }
 
