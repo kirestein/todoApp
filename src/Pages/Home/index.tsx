@@ -59,9 +59,6 @@ const Home: React.FC = () => {
   //       alert(`Erro ao buscar os documentos: ${error}`);
   //     });
   // };
-
-  
-
   const logout = async () => {
     await signOut(auth)
       .then(() => {
@@ -90,7 +87,6 @@ const Home: React.FC = () => {
           </Modal>
         )}
       </C.Content>
-      <img src="" alt="" />
     </C.Container>
   );
 };
