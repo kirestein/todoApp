@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
-import { Input, Label, Span } from './styles';
+import * as C from './styles';
 
 interface IInputComponentProps{
     type: string;
@@ -8,6 +8,7 @@ interface IInputComponentProps{
     placeholder?: string;
     value: any;
     setValue: (value: any) => void;
+    children?: ReactNode
 }
 
 const InputComponent: React.FC<IInputComponentProps> = ({
@@ -16,18 +17,22 @@ const InputComponent: React.FC<IInputComponentProps> = ({
     placeholder,
     value,
     setValue,
+    children
 }) => {
   return (
     <>
-        <Label>
-            <Span>{ label }</Span>
-            <Input 
-                type={type} 
-                placeholder={placeholder}
-                value={value}
-                onChange={e=>setValue(e.target.value)}
-            />
-        </Label>
+        <C.Label>
+            <C.Span>{ label }</C.Span>
+            <C.Line>
+                <C.Input 
+                    type={type} 
+                    placeholder={placeholder}
+                    value={value}
+                    onChange={e=>setValue(e.target.value)}
+                />
+                { children }
+            </C.Line>
+        </C.Label>
     </>
   );
 }

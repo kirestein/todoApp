@@ -13,9 +13,9 @@ export const MyModal = styled.div`
     padding: 2rem;
     max-width: 30rem;
     margin: 15.5rem;
-    background: #555555;
-    border: 0.3rem solid #f60a;
+    background: ${props=>props.theme.colors.tertiary};
+    border: 0.3rem solid ${props=>props.theme.colors.primary};
     border-radius: 0.5rem;
-    box-shadow: 0 0 3rem rgba(100,50,0.6);
+    box-shadow: 0 0 3rem rgba(20,50,80.6);
 `
 
