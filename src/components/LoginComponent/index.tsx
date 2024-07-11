@@ -26,7 +26,6 @@ const LoginComponent: React.FC = () => {
     
     await signInWithEmailAndPassword(auth, email, senha)
     .then((value) => {
-      alert('Usuário logado com sucesso!')
       setUserDetail({
         uid: value.user.uid,
         email: value.user.email

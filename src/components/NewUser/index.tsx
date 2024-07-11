@@ -20,7 +20,6 @@ const NewUser: React.FC<INewUserProps> = ({ setNovoUsuario }) => {
       updateProfile(user.user, {
         displayName: nome
       })
-      alert('Usuário cadastrado com sucesso!')
       setNovoUsuario(false)
       setEmail('')
       setSenha('')

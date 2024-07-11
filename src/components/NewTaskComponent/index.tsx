@@ -31,7 +31,6 @@ const NewTaskComponent: React.FC<INewTaskComponentProps> = ({
       user: user,
     })
       .then(() => {
-        alert("Documento adicionado com sucesso");
         setTask("");
       })
       .catch((error) => {

@@ -31,7 +31,6 @@ const UpdateTask: React.FC<IUpdateTaskComponentProps> = ({
           user: user,
         })
           .then(() => {
-            alert("Documento atualizado com sucesso");
             setEditTask(false);
             setTask("");
           })
