@@ -9,7 +9,7 @@ import Private from './Private';
 const AppRoutes: React.FC = () => {
   return (
     <Routes>
-        <Route path='/' Component={Login} />
+        <Route path='/todoApp' Component={Login} />
         <Route path='/home' element={<Private> <Home /> </Private>} />
     </Routes>
   );
